@@ -69,7 +69,7 @@ block.titleblock(performance_title)
 
 print_result = ''.join(block.result)
 
-with open("{num}_{subject}.md",'w') as f:
+with open(f"{num}_{subject}.md",'w') as f:
     f.write(print_result)
     
 
