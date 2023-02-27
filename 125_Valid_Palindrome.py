@@ -1,39 +1,4 @@
-import markdown # convert markdown 
-
-from pygments.formatters import HtmlFormatter
-from markdown.extensions.codehilite import CodeHiliteExtension
-
-
-class CustomHtmlFormatter(HtmlFormatter):
-    def __init__(self, lang_str='', **options):
-        super().__init__(**options)
-        # lang_str has the value {lang_prefix}{lang}
-        # specified by the CodeHilite's options
-        self.lang_str = lang_str
-
-    def _wrap_code(self, source):
-        yield 0, f'<code class="{self.lang_str}">'
-        yield from source
-        yield 0, '</code>'
-
-
-
-class Block:
-    def __init__(self):
-        self.result = []
-        
-    def codeblock(self, code_block):         
-        code = markdown.markdown(
-            code_block,
-            extensions=[CodeHiliteExtension(pygments_formatter=CustomHtmlFormatter)],
-        )       
-        self.result.append(code)
-        
-    def titleblock(self, title_block):         
-        title = markdown.markdown(
-            title_block
-            )       
-        self.result.append(title)
+from util.python2Markdown import Block 
         
 block = Block()
 
@@ -141,4 +106,40 @@ print(print_result.replace('\n <br>',''))
 with open("125_valid_panlindrome.md",'w') as f:
     f.write(print_result)
     
-    
+
+####### using slicing
+
+block = Block()
+slicing_title = """
+### using Slicing 
+#### [leetcode-125](https://leetcode.com/problems/valid-palindrome)
+#### + 정규식 사용
+"""
+
+block.titleblock(slicing_title)
+
+            
+mycode = """
+    :::python
+    import re
+    import collections
+
+    class Solution:
+        def isPalindrome(self, s: str) -> bool:
+            s = s.lower()
+            s = re.sub('[^a-z0-9]','',s)
+            
+            return s == s[::-1]  # reverse
+"""
+
+block.codeblock(mycode)
+
+
+performance_title = '### Result : 46ms Memory: 15.7mb'
+
+block.titleblock(performance_title)
+
+
+print(''.join(block.result))
+
+
