@@ -34,3 +34,22 @@ class Block:
             title_block
             )       
         self.result.append(title)
+        
+    def addcode_block(self, sub_context, code, sec, memory):
+        subtitle = markdown.markdown(
+            f'### {sub_context}'
+            )
+        code_ = markdown.markdown(
+            f"""
+            :::python
+            {code}
+        """,
+            extensions=[CodeHiliteExtension(pygments_formatter=CustomHtmlFormatter)],
+        )
+
+        performance_title1 = markdown.markdown(
+            f'##### Result : {sec}ms Memory: {memory}mb'
+            )
+        
+        add_list = [subtitle, code_,performance_title1]
+        return add_list

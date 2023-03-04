@@ -4,7 +4,7 @@ using python-markdown for posting Tstory
 
 ### python2Markdown.py
 
-#### span code block & markdon 
+#### span code block & markdown 
 
 <h2>LeetCode-<a href="leetcode">0</a></h2>
 <h4>subject : info</h4>
