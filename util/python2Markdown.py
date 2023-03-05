@@ -51,5 +51,7 @@ class Block:
             f'##### Result : {sec}ms Memory: {memory}mb'
             )
         
-        add_list = [subtitle, code_,performance_title1]
-        return add_list
+        self.result.append(subtitle)
+        self.result.append(code_)
+        self.result.append(performance_title1)
+        

@@ -5,12 +5,14 @@ subject = 'subject'
 leetcode_addr = 'leetcode'
 info = 'info'
 sub = 'sub'
+sub_context = ''
 code = """"""
-
 sec = 0
 memory = 0
 
 block = Block()
+block.add_codeblock(sub_context, code, sec, memory)
+
 title_block = f"""## LeetCode-[{num}]({leetcode_addr})
 
 ##### {subject} : {info}
@@ -18,18 +20,17 @@ title_block = f"""## LeetCode-[{num}]({leetcode_addr})
 """
 block.titleblock(title_block)
 
-sub_context = ''
-subtitle = f'### {sub_context}'
-block.titleblock(subtitle)
+# subtitle = f'### {sub_context}'
+# block.titleblock(subtitle)
 
-code1 = f"""
-    :::python
-    {code}
-"""
-block.codeblock(code1)
+# code1 = f"""
+#     :::python
+#     {code}
+# """
+# block.codeblock(code1)
 
-performance_title = f'##### Result : {sec}ms Memory: {memory}mb'
-block.titleblock(performance_title)
+# performance_title = f'##### Result : {sec}ms Memory: {memory}mb'
+# block.titleblock(performance_title)
 
 print_result = ''.join(block.result)
 
