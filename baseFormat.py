@@ -11,7 +11,6 @@ sec = 0
 memory = 0
 
 block = Block()
-block.add_codeblock(sub_context, code, sec, memory)
 
 title_block = f"""## LeetCode-[{num}]({leetcode_addr})
 
@@ -19,6 +18,7 @@ title_block = f"""## LeetCode-[{num}]({leetcode_addr})
 ##### note : {sub}
 """
 block.titleblock(title_block)
+block.addcode_block(sub_context, code, sec, memory)
 
 # subtitle = f'### {sub_context}'
 # block.titleblock(subtitle)
@@ -34,7 +34,7 @@ block.titleblock(title_block)
 
 print_result = ''.join(block.result)
 
-with open(f"{num}_{subject}.md",'w') as f:
+with open(f"markdown/{num}_{subject}.md",'w') as f:
     f.write(print_result)
     
 
