@@ -87,5 +87,3 @@ print_result = ''.join(block.result)
 with open(f"markdown/{num}_{subject}.md",'w') as f:
     f.write(print_result)
     
-
-####### using slicing
