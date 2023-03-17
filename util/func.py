@@ -1,3 +1,6 @@
+from typing import List
+
+
 class ListNode: 
     # Function to initialise the node object
     def __init__(self, val=0, next=None):
@@ -34,16 +37,37 @@ revlink = LinkedList
 revlink.head = rev
 revlink.printList
 
-head = ListNode(1)
-head.next = ListNode(2)
-head.next.next = ListNode(3)
-head.next.next.next = ListNode(4)
-head.next.next.next.next  = ListNode(None)
+l1 = ListNode(val=1, next=ListNode(val=2,next=ListNode(3)))
+l2 = ListNode(val=9, next=ListNode(val=1,next=ListNode(9)))
+head = ListNode()
+p = []
+i=0
+while l1 or l2:
+    p.append((l1.val + l2.val)*10**i)
+       
+    l1 = l1.next
+    l2 = l2.next
+    i+=1 
+    
+sum_p = sum(p)
 
+i=0
+while sum_p < 10:
+    
 
-head.next.next.val
+    new_node = ListNode((sum_p)//(10**i))
+    head.next = new_node
+    head=head.next
+    
+    
+    l3 = l3.next
+    i+=1 
+head.val
+head.next
 
-
-
+l3.val
+l3.next.val
+l3.next.next.val
+l3.next.next.next.val
 node = head
 prev = None
