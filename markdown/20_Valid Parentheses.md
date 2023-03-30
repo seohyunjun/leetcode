@@ -1,0 +1,19 @@
+<h2>LeetCode-<a href="https://leetcode.com/problems/valid-parentheses/description/">20</a></h2>
+<h5>Valid Parentheses : Given a string s containing just the characters (, ), {, }, [ and ], determine if the input string is valid.</h5>
+<h5>note : s consists of parentheses only ()[]{}</h5><h3>Answer</h3><div class="codehilite"><pre><span></span><code><span class="w">        </span><span class="o">::</span><span class="err">:</span><span class="n">python</span><span class="w"></span>
+
+<span class="k">class</span><span class="w"> </span><span class="nl">Solution</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="n">isValid</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="nl">s</span><span class="p">:</span><span class="w"> </span><span class="nf">str</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nl">bool</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="n">valid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">[]</span><span class="w"></span>
+<span class="w">        </span><span class="n">dict_valid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+<span class="w">            </span><span class="ss">&quot;}&quot;</span><span class="err">:</span><span class="ss">&quot;{&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="ss">&quot;]&quot;</span><span class="err">:</span><span class="ss">&quot;[&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="ss">&quot;)&quot;</span><span class="err">:</span><span class="ss">&quot;(&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="err">}</span><span class="w"></span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nl">s</span><span class="p">:</span><span class="w"></span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nl">dict_valid</span><span class="p">:</span><span class="w"></span>
+<span class="w">                </span><span class="n">valid</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">l</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="n">elif</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">valid</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">dict_valid</span><span class="o">[</span><span class="n">l</span><span class="o">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">valid</span><span class="p">.</span><span class="n">pop</span><span class="p">()</span><span class="err">:</span><span class="w"></span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="k">False</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nf">len</span><span class="p">(</span><span class="n">valid</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="w"></span>
+</code></pre></div><h5>Result : 31ms Memory: 13.9mb</h5>
