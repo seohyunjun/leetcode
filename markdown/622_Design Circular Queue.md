@@ -1,0 +1,52 @@
+<h2>LeetCode-<a href="https://leetcode.com/problems/design-circular-queue/">622</a></h2>
+<h5>Design Circular Queue : Design your implementation of the circular queue. The circular queue is a linear data structure in which the operations are performed based on FIFO (First In First Out) principle, and the last position is connected back to the first position to make a circle. It is also called "Ring Buffer".</h5>
+<h5>note : You must solve the problem without using the built-in queue data structure in your programming language.</h5><h3>MyAnswer</h3><div class="codehilite"><pre><span></span><code><span class="w">        </span><span class="o">:::</span><span class="n">python</span><span class="w"></span>
+
+<span class="n">class</span><span class="w"> </span><span class="n">MyCircularQueue</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="n">__init__</span><span class="p">(</span><span class="kr">self</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="o">:</span><span class="w"> </span><span class="n">int</span><span class="p">)</span><span class="o">:</span><span class="w"></span>
+<span class="w">        </span><span class="kr">self</span><span class="p">.</span><span class="n">deq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">collections</span><span class="p">.</span><span class="n">deque</span><span class="p">(</span><span class="n">maxlen</span><span class="o">=</span><span class="n">k</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="kr">self</span><span class="p">.</span><span class="n">maxlen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="w"></span>
+<span class="w">        </span><span class="kr">self</span><span class="p">.</span><span class="n">deq_len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="n">enQueue</span><span class="p">(</span><span class="kr">self</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="o">:</span><span class="w"> </span><span class="n">int</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">bool</span><span class="o">:</span><span class="w"></span>
+<span class="w">        </span><span class="nf">if</span><span class="w"> </span><span class="kr">self</span><span class="p">.</span><span class="n">deq_len</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="kr">self</span><span class="p">.</span><span class="n">maxlen</span><span class="o">:</span><span class="w"></span>
+<span class="w">            </span><span class="kr">self</span><span class="p">.</span><span class="n">deq</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="kr">self</span><span class="p">.</span><span class="n">deq_len</span><span class="o">+=</span><span class="mi">1</span><span class="w"></span>
+<span class="w">            </span><span class="kr">return</span><span class="w"> </span><span class="kr">True</span><span class="w"></span>
+<span class="w">        </span><span class="n">else</span><span class="o">:</span><span class="w"></span>
+<span class="w">            </span><span class="kr">return</span><span class="w"> </span><span class="kr">False</span><span class="w"></span>
+<span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="n">deQueue</span><span class="p">(</span><span class="kr">self</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">bool</span><span class="o">:</span><span class="w"></span>
+<span class="w">        </span><span class="nf">if</span><span class="w"> </span><span class="kr">self</span><span class="p">.</span><span class="n">deq_len</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="o">:</span><span class="w"></span>
+<span class="w">            </span><span class="kr">self</span><span class="p">.</span><span class="n">deq</span><span class="p">.</span><span class="n">popleft</span><span class="p">()</span><span class="w"></span>
+<span class="w">            </span><span class="kr">self</span><span class="p">.</span><span class="n">deq_len</span><span class="o">-=</span><span class="mi">1</span><span class="w"></span>
+<span class="w">            </span><span class="kr">return</span><span class="w"> </span><span class="kr">True</span><span class="w"></span>
+<span class="w">        </span><span class="n">else</span><span class="o">:</span><span class="w"></span>
+<span class="w">            </span><span class="kr">return</span><span class="w"> </span><span class="kr">False</span><span class="w"></span>
+<span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="n">Front</span><span class="p">(</span><span class="kr">self</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">int</span><span class="o">:</span><span class="w"></span>
+<span class="w">        </span><span class="nf">if</span><span class="w"> </span><span class="kr">self</span><span class="p">.</span><span class="n">deq_len</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="o">:</span><span class="w"></span>
+<span class="w">            </span><span class="kr">return</span><span class="w"> </span><span class="kr">self</span><span class="p">.</span><span class="n">deq</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"></span>
+<span class="w">        </span><span class="n">else</span><span class="o">:</span><span class="w"></span>
+<span class="w">            </span><span class="kr">return</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="w"></span>
+<span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="n">Rear</span><span class="p">(</span><span class="kr">self</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">int</span><span class="o">:</span><span class="w"></span>
+<span class="w">        </span><span class="nf">if</span><span class="w"> </span><span class="kr">self</span><span class="p">.</span><span class="n">deq_len</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="o">:</span><span class="w"></span>
+<span class="w">            </span><span class="kr">return</span><span class="w"> </span><span class="kr">self</span><span class="p">.</span><span class="n">deq</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="w"></span>
+<span class="w">        </span><span class="n">else</span><span class="o">:</span><span class="w"></span>
+<span class="w">            </span><span class="kr">return</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="w"></span>
+<span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="n">isEmpty</span><span class="p">(</span><span class="kr">self</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">bool</span><span class="o">:</span><span class="w"></span>
+<span class="w">        </span><span class="nf">if</span><span class="w"> </span><span class="kr">self</span><span class="p">.</span><span class="n">deq_len</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="o">:</span><span class="w"></span>
+<span class="w">            </span><span class="kr">return</span><span class="w"> </span><span class="kr">True</span><span class="w"></span>
+<span class="w">        </span><span class="n">else</span><span class="o">:</span><span class="w"></span>
+<span class="w">            </span><span class="kr">return</span><span class="w"> </span><span class="kr">False</span><span class="w"></span>
+<span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="n">isFull</span><span class="p">(</span><span class="kr">self</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">bool</span><span class="o">:</span><span class="w"></span>
+<span class="w">        </span><span class="nf">if</span><span class="w"> </span><span class="kr">self</span><span class="p">.</span><span class="n">deq_len</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kr">self</span><span class="p">.</span><span class="n">maxlen</span><span class="o">:</span><span class="w"></span>
+<span class="w">            </span><span class="kr">return</span><span class="w"> </span><span class="kr">True</span><span class="w"></span>
+<span class="w">        </span><span class="n">else</span><span class="o">:</span><span class="w"></span>
+<span class="w">            </span><span class="kr">return</span><span class="w"> </span><span class="kr">False</span><span class="w"></span>
+<span class="cp"># Your MyCircularQueue object will be instantiated and called as such:</span><span class="w"></span>
+<span class="cp"># obj = MyCircularQueue(k)</span><span class="w"></span>
+<span class="cp"># param_1 = obj.enQueue(value)</span><span class="w"></span>
+<span class="cp"># param_2 = obj.deQueue()</span><span class="w"></span>
+<span class="cp"># param_3 = obj.Front()</span><span class="w"></span>
+<span class="cp"># param_4 = obj.Rear()</span><span class="w"></span>
+<span class="cp"># param_5 = obj.isEmpty()</span><span class="w"></span>
+<span class="cp"># param_6 = obj.isFull()</span><span class="w"></span>
+</code></pre></div><h5>Result : 57ms Memory: 14.4mb</h5>
