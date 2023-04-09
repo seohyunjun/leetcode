@@ -1,5 +1,5 @@
 from util.python2Markdown import Block 
-
+from util.func import getInfo
 num = 0
 subject = 'subject'        
 leetcode_addr = 'leetcode'
@@ -10,6 +10,10 @@ code = """"""
 sec = 0
 memory = 0
 
+
+content = getInfo(subject)
+
+
 block = Block()
 
 title_block = f"""## LeetCode-[{num}]({leetcode_addr})
@@ -19,6 +23,7 @@ title_block = f"""## LeetCode-[{num}]({leetcode_addr})
 """
 block.titleblock(title_block)
 block.addcode_block(sub_context, code, sec, memory)
+block.result.append(content)
 
 # subtitle = f'### {sub_context}'
 # block.titleblock(subtitle)
