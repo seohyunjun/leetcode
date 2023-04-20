@@ -1,14 +1,18 @@
 from util.python2Markdown import Block 
 from util.func import getInfo
-num = 0
-subject = 'subject'        
+num = 9
+subject = 'PalindromeNumber'        
 leetcode_addr = 'leetcode'
-info = 'info'
-sub = 'sub'
-sub_context = ''
-code = """"""
-sec = 0
-memory = 0
+info = 'Given an integer x, return true if x is a palindrome, and false otherwise.'
+sub = 'From left to right, it reads -121. From right to left, it becomes 121-. Therefore it is not a palindrome.'
+sub_context = 'Answer'
+code = """
+    class Solution:
+        def isPalindrome(self, x: int) -> bool:
+            return str(x) == str(x)[::-1]
+"""
+sec = 57
+memory = 13.7
 
 
 content = getInfo(subject)
@@ -23,7 +27,7 @@ title_block = f"""## LeetCode-[{num}]({leetcode_addr})
 """
 block.titleblock(title_block)
 block.addcode_block(sub_context, code, sec, memory)
-block.result.append(f"\n {content}")
+block.result.append(f"\n content")
 
 # subtitle = f'### {sub_context}'
 # block.titleblock(subtitle)

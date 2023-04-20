@@ -48,7 +48,7 @@ class Block:
         )
 
         performance_title1 = markdown.markdown(
-            f'##### Result : {sec}ms Memory: {memory}mb'
+            f'### Result : {sec}ms Memory: {memory}mb'
             )
         
         self.result.append(subtitle)

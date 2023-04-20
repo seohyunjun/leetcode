@@ -7,7 +7,6 @@ def get_key():
         json_data = json.load(json_file)
     return json_data
 
-prompt = 'Design Circular Deque' 
 def getInfo(prompt):
     OpenAIKEY = get_key()
     openai.api_key = OpenAIKEY['Key']['Authorization']    
