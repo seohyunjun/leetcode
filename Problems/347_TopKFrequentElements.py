@@ -1,14 +1,27 @@
+
+    
+    
 from util.python2Markdown import Block 
 from util.func import getInfo
-num = 0
-subject = 'subject'        
-leetcode_addr = 'leetcode'
-info = 'info'
-sub = 'sub'
-sub_context = ''
-code = """"""
-sec = 0
-memory = 0
+num = 347
+subject = 'Top K Frequent Elements'        
+leetcode_addr = 'https://leetcode.com/problems/top-k-frequent-elements/description/'
+info = 'Given an integer array nums and an integer k, return the k most frequent elements. You may return the answer in any order.'
+sub = 'time complexity must be better than O(n log n), where n is the array s size.'
+sub_context = 'Over *'
+code = """
+    class Solution:
+        def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+
+            if len(set(nums))==1:
+                return [nums[0]]
+
+            answer = []
+            count = collections.Counter(nums).most_common(n=k)
+            return [i[0] for i in count]    
+"""
+sec = 111
+memory = 21
 
 # sub_context2 = ''
 # code2 = """"""
