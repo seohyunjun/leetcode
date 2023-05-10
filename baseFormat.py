@@ -15,7 +15,7 @@ memory = 0
 # sec2 = 0
 # memory2 = 0
 
-content = getInfo(subject)
+content = getInfo(subject,code)
 
 
 block = Block()
