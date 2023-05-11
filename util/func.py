@@ -22,6 +22,8 @@ def getInfo(problem, code):
     _content = f"""
     your task is explain leetcode problem \"{problem}\" solution and evaluate user python code which is code below, delimited by triple backticks.
     
+    how to solve problems with code.
+    
     use korean.
     
     result format is Markdown.
