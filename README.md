@@ -20,10 +20,10 @@ using python-markdown for posting Tstory
 
 ### 1 Array & Hashing
 - [x] Contains Duplicate
-- [ ] Valid Anagram
-- [ ] Two Sum
-- [ ] Group Anagrams
-- [ ] Top K Frequent Elements
+- [x] Valid Anagram
+- [x] Two Sum
+- [x] Group Anagrams
+- [x] Top K Frequent Elements
 - [ ] Product of Array Except Self
 - [ ] Valid Sudoku
 - [ ] Encode and Decode Strings   
