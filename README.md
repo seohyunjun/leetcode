@@ -25,8 +25,8 @@ using python-markdown for posting Tstory
 - [x] Group Anagrams
 - [x] Top K Frequent Elements
 - [x] Product of Array Except Self
-- [ ] Valid Sudoku
-- [ ] Encode and Decode Strings   
+- [x] Valid Sudoku
+- [X] Encode and Decode Strings   
 
 <br>
 
